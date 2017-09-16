@@ -15,7 +15,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 export function localizeLoaderFactory(translate: TranslateService, location: Location, settings: LocalizeRouterSettings) {
-  return new ManualParserLoader(translate, (location), settings, ['fr', 'nl', 'en'], 'URL.');
+  return new ManualParserLoader(translate, (location), settings, ['en', 'fr', 'nl'], 'URL.');
 }
 
 

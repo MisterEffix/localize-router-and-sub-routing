@@ -1,28 +1,34 @@
 # LocalizeRouterAndSubRouting
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+This example is made to demonstrate an unexpected behaviour of the localize-router package with subrouting.
 
-## Development server
+The application use 3 languages : english (default), french and ducth
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Structure
+* Application
+  * Animals
+    * Cats
+    * Canids
+  * Objects
 
-## Code scaffolding
+Start the application with `npm i` and `ng serve`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+At the first level of routing (animals vs objects), everything is OK : 
+- you can browse between /en, /en/animals and /en/objects => no problem.
+- you can switch language between fr, en, nl => no problem.
+- you can refresh the page when you are on any page (/en/animals, /fr/animaux, /nl/objecten) => no problem.
 
-## Build
+Everything is working great !  Nice job.  :-)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+At the second level of routing, at the first look, it seems to works well...  But, it doesn't.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1) Go to animals/canids (or animals/cats) and switch the current language :
+You are redireted to /animals.
 
-## Running end-to-end tests
+2) (More important) Go to animals/canids (or animals/cats) with an other language than english and refresh the page :
+You get "Error: Cannot match any routes".
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+In english there is no error, because route tranlations are the same the orginal routes ("canids" is translated "canids" in english...)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
