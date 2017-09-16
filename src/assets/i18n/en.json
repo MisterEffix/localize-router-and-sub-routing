@@ -1,0 +1,11 @@
+{
+  "TITLE":"Routing",
+  "ANIMALS":"Animals",
+  "CANIDS":"Canids",
+  "CATS":"Cats",
+  "OBJECTS":"Objects",
+  "URL.animals":"animals",
+  "URL.canids":"canids",
+  "URL.cats":"cats",
+  "URL.objects":"objects"
+}
